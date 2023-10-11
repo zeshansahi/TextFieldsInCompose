@@ -1,6 +1,7 @@
 package github.zeshansahi.composetextfields
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import github.zeshansahi.composetextfields.ui.theme.ComposeTextFieldsTheme
@@ -39,10 +41,13 @@ fun Greeting(name: String) {
             .padding(top = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val context = LocalContext.current
         SimpleTextField()
         IconRichTextField()
         PasswordOutLinedTextField()
-        CustomGoogleButton()
+        CustomGoogleButton(onClick = {
+            Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show()
+        })
     }
 }
 

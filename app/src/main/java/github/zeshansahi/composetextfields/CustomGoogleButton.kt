@@ -1,5 +1,6 @@
 package github.zeshansahi.composetextfields
 
+import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -28,13 +29,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CustomGoogleButton() {
+fun CustomGoogleButton(onClick: () -> Unit) {
     var clicked by remember { mutableStateOf(false) }
 
     Surface(
         modifier = Modifier
             .padding(top = 20.dp)
-            .clickable { clicked = !clicked }
+            .clickable {
+                clicked = !clicked
+                onClick()
+            }
             .animateContentSize(
                 animationSpec = tween(
                     durationMillis = 300,
@@ -55,7 +59,7 @@ fun CustomGoogleButton() {
                 contentDescription = "google-icon",
                 tint = Color.Unspecified
             )
-            Text(text = "Sign in with google")
+            Text(text = if (clicked) "Creating Account..." else "Sign in with google")
             if (clicked) {
                 Spacer(modifier = Modifier.width(8.dp))
                 CircularProgressIndicator(
@@ -74,5 +78,8 @@ fun CustomGoogleButton() {
 @Composable
 @Preview
 fun GoogleButtonPreveiw() {
-    CustomGoogleButton()
+
+    CustomGoogleButton {
+        Log.e("TAG", "GoogleButtonPreveiw: ")
+    }
 }
