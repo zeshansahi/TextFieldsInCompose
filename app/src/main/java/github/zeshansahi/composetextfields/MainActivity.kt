@@ -42,6 +42,7 @@ fun Greeting(name: String) {
         SimpleTextField()
         IconRichTextField()
         PasswordOutLinedTextField()
+        CustomGoogleButton()
     }
 }
 
