@@ -34,7 +34,7 @@ fun IconRichTextField() {
             nameText = newString
 
         }, label = {
-            Text(text = "Enter E-mail here..")
+            Text(text = "Enter E-mail")
         }, leadingIcon = {
             IconButton(onClick = { /*TODO*/ }) {
                 Icon(imageVector = Icons.Filled.Email, contentDescription = "email-icon")

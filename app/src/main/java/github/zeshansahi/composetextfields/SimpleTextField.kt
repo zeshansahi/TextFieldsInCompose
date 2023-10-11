@@ -1,10 +1,7 @@
 package github.zeshansahi.composetextfields
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -29,7 +26,7 @@ fun SimpleTextField() {
             nameText = newString
 
         }, label = {
-            Text(text = "Enter name here..")
+            Text(text = "Enter Name")
         },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
